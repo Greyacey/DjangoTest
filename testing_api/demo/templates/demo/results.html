@@ -1,0 +1,191 @@
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'demo/style.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $("#inputOrigin").autocomplete({
+                source: "{% url 'origin_airport_search'%}",
+                minLength: 1,
+                delay: 200,
+            });
+        });
+    </script>
+    <script>
+    $(document).ready(function () {
+        $("#inputDestination").autocomplete({
+            source: "{% url 'destination_airport_search'%}",
+            minLength: 1,
+            delay: 200,
+        });
+    });
+</script>
+
+    <title>Amadeus Flight Booking</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg " style="background-color:rgb(1, 1, 65);">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size:15px;">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#"><i class="fa fa-phone" aria-hidden="true"></i> 07001110111</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i> chat with us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#"><i class="fa fa-envelope" aria-hidden="true"></i>testapp@demo.com</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Contact Us
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">VGC Office</a></li>
+                  <li><a class="dropdown-item" href="#">Abijo Ofiice</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size:15px;">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="javascript:void(0)" title="Select Currency" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  NGN
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#" title="USD" onclick="updateCurrency(event, 'usd', 'ngn');">US Dollar : &#36;</a></li>
+                  <li><a class="dropdown-item" href="#" title="NGN" onclick="updateCurrency(event, 'ngn', 'ngn');">Nigerian Naira : &#8358;</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">SignUp</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg" style="background-color: white;">
+        <div class="container-fluid" style="height:80px; padding-top: 16px;">
+          <div class="container">
+            <a  href="#"><img src="{% static 'images/logo.png' %}" alt="" style="width:200px"></a>
+          </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-white" style="font-size: 10px;">
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#">
+                    HOME
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" >  
+                    VISA
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#">
+                    BECOME AN AFFILIATE
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#">
+                    VACATION PACKAGES
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#">
+                    COMPLAINT/FEEDBACK
+                  </a>
+                </li>
+              </ul>
+            </div> 
+        </div>
+    </nav> 
+
+{% if tripPurpose %} <h4 class="login-heading mb-4 mt-4 pl-3">Flying for <span style="font-size: 26;color: darkred;">{{ tripPurpose }} </span> purposes</h4> {% endif %}
+
+<div class="container-fluid">
+    {% if response %}
+    <div class="row">
+        <div class="col" style="background-color: yellow; height:40px;" >
+          <h3 class="text-center">Flight Search Results </h3>
+        </div>
+    </div> 
+      </br>
+      <div class="row">
+        <div class="col" style="background-color: white; height:20px; font-size: smaller;" >
+            <h5 class="mt-4 pl-3">{{ origin }} &#x2708 {{ destination }} <br>{{ departureDate }}
+                {% if returnDate %} <span class="text-info">&#10594&#10596</span> {{ returnDate }}{% endif %}</h5>
+        </div>
+      </div>
+      
+      
+     {% for r, flight in response %}
+          {% if r.0firstFlightDepartureDate %} 
+        <div classs= "container">
+            <div class="row">
+                <div class="col" style="background-color:aliceblue " >
+                    <h3 class="login-heading mb-4 text-left" style="font-size: 26;color: darkred;">${{ r.price }}</h3>
+                    <a href="{% url 'book_flight' %}"><i class="fa fa-plane" aria-hidden="true"></i><input class="ml-2 btn text-white" style="background-color:rgb(1, 1, 65); font-size: 12px;" type="Submit" name="bookFlight" value="Book Flight" /></a>
+                </div>
+            </div> 
+            <div class="col text-center" style="background-color: aliceblue;">
+                <h4 class="font-weight-light text-info pb-3">Departure <span class="smallstyle">Total duration {{ r.0FlightTotalDuration }}</span></h4>
+                <h4><img src={{ r.0firstFlightAirlineLogo }} alt={{ r.0firstFlightAirline }}> {{ r.0firstFlightDepartureDate }} {{ r.0firstFlightDepartureAirport }}
+                 <a href="#" data-toggle="tooltip" class="nounderline text-info" title={{ r.0firstFlightArrivalDuration }} duration>&#10230</a> {{ r.0firstFlightArrivalAirport }} {{ r.0firstFlightArrivalDate }}</h4>
+                  {% if r.0secondFlightDepartureAirport %}
+                    <p class="nounderline elegantstyle">Connection duration is {{ r.0stop_time }}</p>
+                    <h4><img src={{ r.0secondFlightAirlineLogo }} alt={{ r.0secondFlightAirline }}> {{ r.0secondFlightDepartureDate }} {{ r.0secondFlightDepartureAirport }}
+                    <a href="#" data-toggle="tooltip" class="nounderline text-info" title={{ r.0secondFlightArrivalDuration }} duration>&#10230</a> {{ r.0secondFlightArrivalAirport }} {{ r.0secondFlightArrivalDate }}</h4>
+                  {% endif %}
+                  {% if r.1firstFlightDepartureAirport %}
+                    <hr class="newstyle">
+                      <h4 class="font-weight-light text-info pb-3">Return <span class="" style="color: black; font-size: 15px;">Total duration {{ r.1FlightTotalDuration }}</span></h4>
+                      <h4><img src={{ r.1firstFlightAirlineLogo }} alt={{ r.1firstFlightAirline }}> {{ r.1firstFlightDepartureDate }} {{ r.1firstFlightDepartureAirport }}
+                      <a href="#" data-toggle="tooltip" class="nounderline text-info" title={{ r.1firstFlightArrivalDuration }} duration>&#10230</a> {{ r.1firstFlightArrivalAirport }} {{ r.1firstFlightArrivalDate }}</h4>
+                    {% if r.1secondFlightDepartureAirport %}
+                      <p class="nounderline elegantstyle">Connection duration is {{ r.1stop_time }}</p>
+                      <h4><img src={{ r.1secondFlightAirlineLogo }} alt={{ r.1secondFlightAirline }}> {{ r.1secondFlightDepartureDate }} {{ r.1secondFlightDepartureAirport }}
+                      <a href="#" data-toggle="tooltip" class="nounderline text-info" title={{ r.1secondFlightArrivalDuration }} duration>&#10230</a> {{ r.1secondFlightArrivalAirport }} {{ r.1secondFlightArrivalDate }}</h4>
+                    {% endif %}
+                  {% endif %}
+             </div>
+        </div>
+
+    </br>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <h4 class="login-heading mb-4 text-left">No flights found for this itinerary</h4>
+  {% endif %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+</script>
+
+</body>
+</html>

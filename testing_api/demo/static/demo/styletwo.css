@@ -1,0 +1,41 @@
+body {
+    position: relative;
+ }
+ 
+ body:before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background-image: url('https://s3.amazonaws.com/divi-life-plugin-layouts/tutorials/snow/divi-life-snowflakes-b.png'), url('https://s3.amazonaws.com/divi-life-plugin-layouts/tutorials/snow/divi-life-snowflakes-c.png'), url('https://s3.amazonaws.com/divi-life-plugin-layouts/tutorials/snow/divi-life-snowflakes-a-1.png');
+     animation: divi-life-snow 10s linear infinite;
+ }
+ 
+ @keyframes divi-life-snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+ }
+ 
+ @-moz-keyframes divi-life-snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+ }
+ 
+ @-webkit-keyframes divi-life-snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+ }
+ 
+ @-ms-keyframes divi-life-snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+ }

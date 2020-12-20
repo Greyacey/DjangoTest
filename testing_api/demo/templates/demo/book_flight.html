@@ -1,0 +1,136 @@
+{% load static %}
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'demo/stq.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $("#inputOrigin").autocomplete({
+                source: "{% url 'origin_airport_search'%}",
+                minLength: 1,
+                delay: 200,
+            });
+        });
+    </script>
+    <script>
+    $(document).ready(function () {
+        $("#inputDestination").autocomplete({
+            source: "{% url 'destination_airport_search'%}",
+            minLength: 1,
+            delay: 100,
+        });
+    });
+</script>
+
+    <title>Amadeus Flight Booking</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg " style="background-color:rgb(1, 1, 65);">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size:15px;">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#"><i class="fa fa-phone" aria-hidden="true"></i> 07001110111</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i> chat with us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#"><i class="fa fa-envelope" aria-hidden="true"></i>testapp@demo.com</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Contact Us
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">VGC Office</a></li>
+                  <li><a class="dropdown-item" href="#">Abijo Ofiice</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size:15px;">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="javascript:void(0)" title="Select Currency" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  NGN
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#" title="USD" onclick="updateCurrency(event, 'usd', 'ngn');">US Dollar : &#36;</a></li>
+                  <li><a class="dropdown-item" href="#" title="NGN" onclick="updateCurrency(event, 'ngn', 'ngn');">Nigerian Naira : &#8358;</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">SignUp</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg" style="background-color: white;">
+        <div class="container-fluid" style="height:80px; padding-top: 16px;">
+          <div class="container">
+            <a  href="#"><img src="{% static 'images/logo.png' %}" alt="" style="width:200px"></a>
+          </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-white" style="font-size: 10px;">
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#">
+                    HOME
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" >  
+                    VISA
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#">
+                    BECOME AN AFFILIATE
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#">
+                    VACATION PACKAGES
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#">
+                    COMPLAINT/FEEDBACK
+                  </a>
+                </li>
+              </ul>
+            </div> 
+        </div>
+    </nav> 
+    <div class="modal-body row">
+    <div class="col-md-12">
+    </br>
+            <h3 class="login-heading mb-4 text-center text-warning">Your Booking</h3>
+            <div class="login-heading mb-4 text-center">Status: <span class="text-danger">Unavailable</span></div>
+            <div class="login-heading mb-4 text-center">Booking reference: <span class="text-danger">Unavailable</span></div>
+            <div class="login-heading mb-4 text-center">Document issued at: <span class="text-danger">Unavailable</span></div>
+            <div class="login-heading mb-4 text-center">Price: <span class="text-danger">Unavailable</span></div>
+                <div class="card text-center">
+                    <div class="card-body" style="float:right;">
+                        <div class="card-text">
+                            Departure at: <span class="text-danger">Unavailable</span>
+                            <hr class="newstyle">
+                            Return at: <span class="text-danger">Unavailable</span>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>
