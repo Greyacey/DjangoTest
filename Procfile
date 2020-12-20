@@ -1,1 +1,1 @@
-web: gunicorn -w 2 --chdir testing_api/  testing_api.wsgi:application --reload --timeout 900
+web: gunicorn testing_api/testing_api.wsgi:application
