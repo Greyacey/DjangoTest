@@ -2,7 +2,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'q77h6c^4l2fkcbfwnusbaas#()#mp48hj@_93o#h_+62u%%2t8'
-DEBUG = os.environ.get('DEBUG_VALUE', True)
+DEBUG = os.environ.get('DEBUG_VALUE', False)
 ALLOWED_HOSTS = ['amadeus4dev-book-flight.herokuapp.com', '0.0.0.0', '127.0.0.1']
 
 # Application definition
